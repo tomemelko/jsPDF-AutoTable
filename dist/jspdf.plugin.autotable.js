@@ -1171,6 +1171,7 @@ function printRow(row) {
         state_1.default().doc.autoTableText(cell.text, cell.textPos.x, cell.textPos.y, {
             halign: cell.styles.halign,
             valign: cell.styles.valign,
+            rotation: cell.styles.rotation,
             maxWidth: Math.ceil(cell.width - cell.padding('left') - cell.padding('right')),
         });
         table.callCellHooks(table.cellHooks.didDrawCell, cell, row, column);
@@ -2060,10 +2061,10 @@ jsPDF.API.autoTableText = function (text, x, y, styles) {
         this.text(text, x, y, {
             maxWidth: styles.maxWidth || 100,
             align: 'justify',
-        });
+        }, styles.rotation);
     }
     else {
-        this.text(text, x, y);
+        this.text(text, x, y, null, styles.rotation);
     }
     return this;
 };
