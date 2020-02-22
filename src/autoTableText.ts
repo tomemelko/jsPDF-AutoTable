@@ -60,9 +60,9 @@ jsPDF.API.autoTableText = function(text, x, y, styles) {
     this.text(text, x, y, {
       maxWidth: styles.maxWidth || 100,
       align: 'justify',
-    })
+    }, styles.rotation)
   } else {
-    this.text(text, x, y)
+    this.text(text, x, y, null, styles.rotation)
   }
 
   return this

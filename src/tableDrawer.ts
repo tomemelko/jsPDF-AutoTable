@@ -252,6 +252,7 @@ function printRow(row) {
     state().doc.autoTableText(cell.text, cell.textPos.x, cell.textPos.y, {
       halign: cell.styles.halign,
       valign: cell.styles.valign,
+      rotation: cell.styles.rotation,
       maxWidth: Math.ceil(
         cell.width - cell.padding('left') - cell.padding('right')
       ),
